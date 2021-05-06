@@ -3,6 +3,10 @@ using namespace std;
 
 class point{
     public:
+        point(double x=0.0, double y=0.0):x(x),y(y){} //constructor
+        //point(){x = y = 0.0;}
+        //point(){this->x=0.0; this->y=0.0}
+        //point():x(0.0),y(0.0){}
         double getx() const {return x;}
         double gety() const {return y;}
         void setx (double v) {x = v;}
