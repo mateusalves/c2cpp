@@ -11,5 +11,8 @@ int main()
         v[i] = i; //index thru like an array
     for (vector<int>::iterator p = v.begin(); p != v.end(); ++p)
         cout << *p << '\t';
+    // vector<int>::iterator p == auto p (auto is used to declare types that can be deduced from context)
+    for (auto p = v.begin(); p != v.end(); ++p)
+        cout << *p << '\t';
     cout << endl;
 }
