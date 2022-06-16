@@ -1,9 +1,14 @@
 #include <iostream>
 #include "engine.h"
 
-Engine::Engine(Map map): eng_map(map)
+Engine::Engine(Map& map): eng_map(map)
 {
     std::cout << "Engine constructor" << std::endl;
+}
+
+Engine::~Engine()
+{
+
 }
 
 void Engine::play()
@@ -12,17 +17,13 @@ void Engine::play()
     current_scene = eng_map.opening_scene();
     last_scene = eng_map.next_scene("finished");
 
-    while(current_scene.name != last_scene.name)
+    while(current_scene->name != last_scene->name)
     {
-        next_scene_name = current_scene.enter();
+        next_scene_name = current_scene->enter();
         current_scene = eng_map.next_scene(next_scene_name);
     }
 
     //To print out last scene
-    current_scene.enter();
+    current_scene->enter();
 }
 
-Engine::~Engine()
-{
-
-}

@@ -227,6 +227,6 @@ Finished::Finished()
 
 std::string Finished::enter()
 {
-    print("You won! Good job!")
+    std::cout << "You won! Good Job!" << std::endl;
     return "finished";
 }

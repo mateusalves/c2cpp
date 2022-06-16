@@ -7,6 +7,7 @@ class Scene
     public:
         std::string name;
         std::string action;
+        //virtual std::string enter() = 0;
         virtual std::string enter();
 };
 
@@ -23,14 +24,14 @@ class CentralCorridor: public Scene
 {
     public:
         CentralCorridor();
-        std::string enter();
+        std::string enter() override;
 };
 
 class LaserWeaponArmory: public Scene
 {
     public:
         LaserWeaponArmory();
-        std::string enter();
+        std::string enter() override;
     private:
         int code;
         int guess;
@@ -41,14 +42,14 @@ class TheBridge: public Scene
 {
     public:
         TheBridge();
-        std::string enter();
+        std::string enter() override;
 };
 
 class EscapePod: public Scene
 {
     public:
         EscapePod();
-        std::string enter();
+        std::string enter() override;
 
     private:
         int good_pod;
@@ -59,5 +60,5 @@ class Finished: public Scene
 {
     public:
         Finished();
-        std::string enter();
+        std::string enter() override;
 };

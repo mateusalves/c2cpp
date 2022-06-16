@@ -6,13 +6,14 @@
 class Engine
 {
     public:
-        Engine(Map map);
-        Map getMap(){return eng_map;};
-        void play();
+        Engine(Map& map);
         ~Engine();
+        Map& getMap(){return eng_map;};
+        void play();
     private:
-        Map eng_map; //NOTE: what is the name convention for this situation?
-        Scene current_scene, last_scene;
+        Map& eng_map; //NOTE: what is the name convention for this situation?
+        Scene* current_scene;
+        Scene* last_scene;
         std::string next_scene_name;
 
 };
