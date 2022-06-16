@@ -49,6 +49,10 @@ class EscapePod: public Scene
     public:
         EscapePod();
         std::string enter();
+
+    private:
+        int good_pod;
+        int guess;
 };
 
 class Finished: public Scene

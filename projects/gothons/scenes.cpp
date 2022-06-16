@@ -117,12 +117,19 @@ std::string LaserWeaponArmory::enter()
 
     if(guess == code)
     {
-        std::cout << "" << std::endl;
-        return "central_corridor";
+        std::cout << "The container clicks open and the seal breaks, letting" << std::endl;
+        std::cout << "gas out. You grab the neutron bomb and run as fast as" << std::endl;
+        std::cout << "you can to the bridge where you must place it in the" << std::endl;
+        std::cout << "right spot." << std::endl;
+        return "the_bridge";
     }
     else
     {
-
+        std::cout << "The lock buzzes one last time and then you hear a" << std::endl;
+        std::cout << "sickening melting sound as the mechanism is fused" << std::endl;
+        std::cout << "together. You decide to sit there, and finally the" << std::endl;
+        std::cout << "Gothons blow up the ship from their ship and you die." << std::endl;
+        return "death";
     }
 }
 
@@ -133,7 +140,44 @@ TheBridge::TheBridge()
 
 std::string TheBridge::enter()
 {
-    return "hahaha";
+    std::cout << "You burst onto the Bridge with the netron destruct bomb" << std::endl;
+    std::cout << "under your arm and surprise 5 Gothons who are trying to" << std::endl;
+    std::cout << "take control of the ship. Each of them has an even uglier" << std::endl;
+    std::cout << "clown costume than the last. They haven't pulled their" << std::endl;
+    std::cout << "weapons out yet, as they see the active bomb under your" << std::endl;
+    std::cout << "arm and don't want to set it off." << std::endl;
+
+    std::cout << "> ";
+    std::cin >> action;
+
+    if(action == "throw the bomb")
+    {
+        std::cout << "In a panic you throw the bomb at the group of Gothons" << std::endl;
+        std::cout << "and make a leap for the door. Right as you drop it a" << std::endl;
+        std::cout << "Gothon shoots you right in the back killing you. As" << std::endl;
+        std::cout << "you die you see another Gothon frantically try to" << std::endl;
+        std::cout << "disarm the bomb. You die knowing they will probably" << std::endl;
+        std::cout << "blow up when it goes off." << std::endl;
+        return "death";
+    }
+    else if(action == "slowly place the bomb")
+    {
+
+        std::cout << "You point your blaster at the bomb under your arm and" << std::endl;
+        std::cout << "the Gothons put their hands up and start to sweat." << std::endl;
+        std::cout << "You inch backward to the door, open it, and then" << std::endl;
+        std::cout << "carefully place the bomb on the floor, pointing your" << std::endl;
+        std::cout << "blaster at it. You then jump back through the door," << std::endl;
+        std::cout << "punch the close button and blast the lock so the" << std::endl;
+        std::cout << "Gothons can't get out. Now that the bomb is placed" << std::endl;
+        std::cout << "you run to the escape pod to get off this tin can" << std::endl;
+        return "escape_pod";
+    }
+    else
+    {
+        std::cout << "DOES NOT COMPUTE!" << std::endl;
+        return "the_bridge";
+    }
 }
 
 EscapePod::EscapePod()
@@ -143,7 +187,37 @@ EscapePod::EscapePod()
 
 std::string EscapePod::enter()
 {
-    return "hahaha";
+
+    std::cout << "You rush through the ship desperately trying to make it to" << std::endl;
+    std::cout << "the escape pod before the whole ship explodes. It seems" << std::endl;
+    std::cout << "like hardly any Gothons are on the ship, so your run is" << std::endl;
+    std::cout << "clear of interference. You get to the chamber with the" << std::endl;
+    std::cout << "escape pods, and now need to pick one to take. Some of" << std::endl;
+    std::cout << "them could be damaged but you don't have time to look." << std::endl;
+    std::cout << "There's 5 pods, which one do you take?" << std::endl;
+
+    good_pod = 3; //Not really random
+    std::cout << "[pod #]> ";
+    std::cin >> guess;
+
+    if (guess != good_pod)
+    {
+        std::cout << "You jump into pod {guess} and hit the eject button" << std::endl;
+        std::cout << "The pod escapes out into the void of space, then" << std::endl;
+        std::cout << "implodes as the hull ruptures, crushing your body into" << std::endl;
+        std::cout << "jam jelly." << std::endl;
+        return "death";
+    }
+    else
+    {
+        std::cout << "You jump into pod " << guess << " and hit the eject button." << std::endl;
+        std::cout << "The pod easily slides out into space heading to the" << std::endl;
+        std::cout << "planet below. As it flies to the planet, you look" << std::endl;
+        std::cout << "back and see your ship implode then explode like a" << std::endl;
+        std::cout << "bright star, taking out the Gothon ship at the same" << std::endl;
+        std::cout << "time. You won!" << std::endl;
+        return "finished";
+    }
 }
 
 Finished::Finished()
@@ -153,5 +227,6 @@ Finished::Finished()
 
 std::string Finished::enter()
 {
-    return "hahaha";
+    print("You won! Good job!")
+    return "finished";
 }
