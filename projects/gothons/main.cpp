@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "scenes.h"
-#include "engine.h"
+#include "engine.hpp"
 #include "map.h"
 
 int main(int argc, char **argv)
